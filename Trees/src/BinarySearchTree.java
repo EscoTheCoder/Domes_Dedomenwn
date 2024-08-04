@@ -55,16 +55,16 @@ public class BinarySearchTree {
             return true;
         }
         else if (data<root.data){
-            return searchRecursion(root.left,data);
+            return searchRecursion(root.left, data);
         }
         else{
-            return searchRecursion(root.right,data);
+            return searchRecursion(root.right, data);
         }
     }
 
-    public void remove(int data){
+    public void remove(int data)    {
         if(search(data)){
-            removeRecursion(root,data);
+            removeRecursion(root, data);
         }
         else{
             System.out.println(data +" Could not be found");
@@ -85,8 +85,31 @@ public class BinarySearchTree {
             if(root.left==null && root.right==null){ //elegxos ana exei paidia
                 root=null;
             }
-
+            else if(root.right!=null){ //find a successor to replace this node
+                root.data=successor(root);
+                root.right=removeRecursion(root.right, root.data);
+            }
+            else{ //find a predecessor to replace this node
+                root.data=predecessor(root);
+                root.left=removeRecursion(root.left, root.data);
+            }
         }
+        return root;
+    }
 
+    private int successor(Node root){ //find the least value below the right child of this rood node
+        root=root.right;
+        while(root.left!=null){
+            root=root.left;
+        }
+        return root.data;
+    }
+
+    private int predecessor(Node root) { //find the greatest value below the left child of this rood node
+        root=root.left;
+        while(root.right!=null){
+            root=root.right;
+        }
+        return root.data;
     }
 }

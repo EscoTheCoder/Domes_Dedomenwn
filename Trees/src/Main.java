@@ -3,15 +3,17 @@ public class Main {
 
         BinarySearchTree tree = new BinarySearchTree();
 
-        tree.insert(new Node(5));
-        tree.insert(new Node(1));
-        tree.insert(new Node(9));
-        tree.insert(new Node(2));
-        tree.insert(new Node(7));
-        tree.insert(new Node(3));
-        tree.insert(new Node(6));
-        tree.insert(new Node(4));
-        tree.insert(new Node(8));
+        tree.insert(5);
+        tree.insert(1);
+        tree.insert(9);
+        tree.insert(2);
+        tree.insert(7);
+        tree.insert(3);
+        tree.insert(6);
+        tree.insert(4);
+        tree.insert(8);
+
+        tree.remove(1);
 
         tree.display();
 
