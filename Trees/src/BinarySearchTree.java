@@ -79,7 +79,7 @@ public class BinarySearchTree {
             root.left = removeRecursion(root.left,data);
         }
         else if(data>root.data){
-            root.left = removeRecursion(root.right,data);
+            root.right = removeRecursion(root.right,data);
         }
         else{ //node found
             if(root.left==null && root.right==null){ //elegxos ana exei paidia
