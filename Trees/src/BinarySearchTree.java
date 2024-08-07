@@ -62,7 +62,7 @@ public class BinarySearchTree {
         }
     }
 
-    public void remove(int data)    {
+    public void remove(int data) {
         if(search(data)){
             removeRecursion(root, data);
         }
@@ -83,7 +83,7 @@ public class BinarySearchTree {
         }
         else{ //node found
 
-            //Case 1: No Child
+            //Case 1: No Children
             if(root.left==null && root.right==null){ //to node den exei paidia
                 return null;
             }
@@ -96,7 +96,7 @@ public class BinarySearchTree {
             else if(root.right==null && root.left!=null){
                 return root.left;
             }
-            //Case 3: 2 Children
+            //Case 3: Two Children
             else{
                 root.data = minValue(root.right);
                 root.right = removeRecursion(root.right, root.data);
