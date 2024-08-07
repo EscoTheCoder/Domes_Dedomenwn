@@ -79,37 +79,38 @@ public class BinarySearchTree {
             root.left = removeRecursion(root.left,data);
         }
         else if(data>root.data){
-            root.left = removeRecursion(root.right,data);
+            root.right = removeRecursion(root.right,data);
         }
         else{ //node found
-            if(root.left==null && root.right==null){ //elegxos ana exei paidia
-                root=null;
+
+            //Case 1: No Child
+            if(root.left==null && root.right==null){ //to node den exei paidia
+                return null;
             }
-            else if(root.right!=null){ //find a successor to replace this node
-                root.data=successor(root);
-                root.right=removeRecursion(root.right, root.data);
+            //Case 2:
+            //Only One Children (right Children)
+            else if(root.left==null && root.right!=null){
+                return root.right;
             }
-            else{ //find a predecessor to replace this node
-                root.data=predecessor(root);
-                root.left=removeRecursion(root.left, root.data);
+            //Only One Children (left Children)
+            else if(root.right==null && root.left!=null){
+                return root.left;
+            }
+            //Case 3: 2 Children
+            else{
+                root.data = minValue(root.right);
+                root.right = removeRecursion(root.right, root.data);
             }
         }
         return root;
     }
 
-    private int successor(Node root){ //find the least value below the right child of this rood node
-        root=root.right;
-        while(root.left!=null){
-            root=root.left;
+    private int minValue(Node root) {
+        int minv = root.data;
+        while (root.left != null) {
+            minv = root.left.data;
+            root = root.left;
         }
-        return root.data;
-    }
-
-    private int predecessor(Node root) { //find the greatest value below the left child of this rood node
-        root=root.left;
-        while(root.right!=null){
-            root=root.right;
-        }
-        return root.data;
+        return minv;
     }
 }
