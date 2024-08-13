@@ -88,6 +88,22 @@ public class LinkedList {
         return current;
     }
 
+    public Node reverse(){
+        if(head==null){
+            return null;
+        }
+        Node current=head;
+        Node previous=null; 
+        Node next=null;
+        while(current!=null){
+            next=current.next;
+            current.next=previous;
+            previous=current;
+            current=next;
+        }
+        return previous;
+    }
+
     public void show(){
         Node node = head;
         while(node.next!=null){
