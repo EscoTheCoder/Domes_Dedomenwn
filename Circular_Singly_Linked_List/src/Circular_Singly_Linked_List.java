@@ -101,5 +101,4 @@ public class Circular_Singly_Linked_List {
         } while (current != first);
         System.out.println("null");
     }
-
 }

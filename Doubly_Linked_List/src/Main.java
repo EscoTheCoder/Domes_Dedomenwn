@@ -7,10 +7,9 @@ public class Main {
         dll.insertLast(10);
         dll.insertLast(15);
         dll.insertLast(20);
-        dll.insertAtPosition(13,1);
 
         dll.displayListForward();
-        dll.deleteAtPosition(3);
+        dll.deleteFirst();
         dll.displayListForward();
         //dll.displayListBackward();
 
