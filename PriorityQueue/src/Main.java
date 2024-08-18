@@ -14,12 +14,12 @@ public class Main {
         System.out.println(pq.isEmpty());
 
         pq.printMaxHeap();
-        System.out.println();
-
-        System.out.println(pq.deleteMax());
-
-        System.out.println();
-        pq.printMaxHeap();
+//        System.out.println();
+//
+//        System.out.println(pq.deleteMax());
+//
+//        System.out.println();
+//        pq.printMaxHeap();
 
     }
 }

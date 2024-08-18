@@ -71,7 +71,7 @@ public class Main {
                 k++;
             }
         }
-        else{ //Ejantilithike o 1os pinakas
+        else{ //Ejantilithike o 2os pinakas
             while(i<=n){
                 C[k]=array[i];
                 i++;
