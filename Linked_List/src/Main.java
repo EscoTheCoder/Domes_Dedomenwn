@@ -1,5 +1,3 @@
-import org.w3c.dom.Node;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -14,9 +12,12 @@ public class Main {
 
         list.show();
 
-        list.deleteLastNode();
+        //list.deleteLastNode();
 
         System.out.println();
+
+        list.reverse();
+
         list.show();
 
 

@@ -1,20 +1,18 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        StringDoubleEndedQueueImpl s=new StringDoubleEndedQueueImpl();
-        s.addLast("nikos");
-        s.addLast("aris");
-        s.addLast("kostas");
-        s.addLast("babis");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Εισάγετε την προθεματική παράσταση: ");
+        String expression = scanner.nextLine();
 
-        s.printQueue();
+        // Καλούμε τη συνάρτηση για μετατροπή
+        String result = PrefixToInfix.convertPrefixToInfix(expression);  // Χρήση ονόματος κλάσης για πρόσβαση στη στατική μέθοδο.
 
-        System.out.println(s.getFirst()+" "+s.getLast());
+        // Εκτυπώνουμε το αποτέλεσμα
+        System.out.println("Η ενθεματική παράσταση είναι: " + result);
 
-        s.removeFirst();
-        s.removeLast();
-        s.addFirst("elpida");
-
-
-        s.printQueue();
+        scanner.close();
     }
+
 }

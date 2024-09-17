@@ -109,6 +109,6 @@ public class StringDoubleEndedQueueImpl implements StringDoubleEndedQueue{
 
     @Override
     public int size() {
-        return 0;
+        return length;
     }
 }
