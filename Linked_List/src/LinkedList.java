@@ -102,13 +102,13 @@ public class LinkedList {
         }
         Node current = head;
         Node prev = null;
-        Node next_Node = null;
+        Node currNext = null;
 
         while (current != null) {
-            next_Node = current.next;
+            currNext = current.next;
             current.next = prev;
             prev = current;
-            current = next_Node;
+            current = currNext;
         }
         head = prev;
     }
