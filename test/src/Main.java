@@ -1,6 +1,4 @@
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 
 public class Main {
     public static void main(String[] args) {
@@ -35,43 +33,95 @@ public class Main {
 //            System.out.println(d[i]);
 //            System.out.println(e[i]+"\n");
 //        }
-        ArrayList<Integer> a = new ArrayList<>();
+//        ArrayList<Integer> a = new ArrayList<>();
+//
+//        int[] nums1 = {1,2,2,1};
+//        int[] nums2 = {2,2};
+//
+//
+//        if(nums1.length>nums2.length) {
+//            for (int i = 0; i< nums2.length; i++){
+//                for(int j=0; j<nums1.length; j++) {
+//                    if (nums2[i]==nums1[j]) {
+//                        a.add(nums2[i]);
+//                    }
+//                }
+//            }
+//        }
+//        else{
+//            for (int i = 0; i< nums1.length; i++){
+//                for(int j=0; j<nums2.length; j++) {
+//                    if (nums1[i]==nums2[j]) {
+//                        a.add(nums1[i]);
+//                    }
+//                }
+//            }
+//        }
+//
+//        HashSet<Integer> s = new HashSet<>(a);
+//
+//        int[] nums3 = new int[s.size()];
+//
+//        int i=0;
+//
+//        // iterating over the hashset
+//        for(Integer ele : s){
+//            nums3[i++] = ele;
+//        }
 
-        int[] nums1 = {1,2,2,1};
-        int[] nums2 = {2,2};
+        int[] array = {5,3,1,7};
 
+        System.out.println(Arrays.toString(array));
 
-        if(nums1.length>nums2.length) {
-            for (int i = 0; i< nums2.length; i++){
-                for(int j=0; j<nums1.length; j++) {
-                    if (nums2[i]==nums1[j]) {
-                        a.add(nums2[i]);
-                    }
+        insertionSort(array);
+
+        System.out.println(Arrays.toString(array));
+    }
+
+    /**
+     * Sunarthsh Tajinomhshs
+     * @param array o pinakas pou prepei na tajinomithei
+     */
+    public static void bubbleSort(int[] array){
+        int N = array.length;
+        for(int i=0; i<N; i++){
+            for(int j=N-1; j>i; j--){
+                if(array[j]<array[j-1]){
+                    int temp = array[j];
+                    array[j]=array[j-1];
+                    array[j-1]=temp;
                 }
             }
         }
-        else{
-            for (int i = 0; i< nums1.length; i++){
-                for(int j=0; j<nums2.length; j++) {
-                    if (nums1[i]==nums2[j]) {
-                        a.add(nums1[i]);
-                    }
+    }
+
+    public static void selectionSort(int[] array){
+        int N = array.length;
+        int min;
+        for(int i=0; i<N; i++){
+            min=i;
+            for(int j=i+1; j<N; j++){
+                if(array[j]<array[min]){
+                    min=j;
                 }
             }
+            int temp=array[i];
+            array[i]=array[min];
+            array[min]=temp;
         }
+    }
 
-        HashSet<Integer> s = new HashSet<>(a);
+    public static void insertionSort(int[] array) {
 
-        int[] nums3 = new int[s.size()];
+        for(int i = 1; i < array.length; i++) {
+            int temp = array[i];
+            int j = i - 1;
 
-        int i=0;
-
-        // iterating over the hashset
-        for(Integer ele : s){
-            nums3[i++] = ele;
+            while(j >= 0 && array[j] > temp) {
+                array[j + 1] = array[j];
+                j--;
+            }
+            array[j + 1] = temp;
         }
-
-        
-
     }
 }

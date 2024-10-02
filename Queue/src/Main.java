@@ -11,6 +11,7 @@ public class Main {
         queue.enqueue(3);
         queue.enqueue(4);
 
+        System.out.println(queue.isFull());
 
     }
 }

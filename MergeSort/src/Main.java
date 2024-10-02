@@ -13,10 +13,10 @@ public class Main {
     public static void mergesort(int[] array, int start, int finish){
         int middle;
 
-        if (start==finish){ // 1 stoixio ston pinaka
+        if (start==finish) { // 1 stoixio ston pinaka
             return;
         }
-        else if (start==finish-1){ // 2 stoixia ston pinaka
+        else if (start==finish-1) { // 2 stoixia ston pinaka
             if(array[start]>array[finish]){
                 int temp=array[start];
                 array[start]=array[finish];

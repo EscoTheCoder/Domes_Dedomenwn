@@ -3,7 +3,7 @@ import java.util.EmptyStackException;
 public class Queue {
     //KUKLIKH OURA
     int[] queue;
-    int n;
+    int n; //megethos ths ouras
     int head; //prwto stoixeio ouras
     int tail; //meta to teleutaio stoixeio (ekei pou prepei na bei to epomeno)
     int size;
