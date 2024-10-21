@@ -27,12 +27,12 @@ public class StringDoubleEndedQueueImpl implements StringDoubleEndedQueue{
     public void addFirst(String item) {
         Node newNode = new Node(item);
         if(isEmpty()){
-            tail=newNode;
+            tail = newNode;
         }
-        else{
-            head.prev=newNode;
+        else {
+            head.prev = newNode;
+            newNode.next=head;
         }
-        newNode.next=head;
         head=newNode;
         length++;
     }
@@ -59,7 +59,7 @@ public class StringDoubleEndedQueueImpl implements StringDoubleEndedQueue{
     public void addLast(String item) {
         Node newNode = new Node(item);
         if(isEmpty()){
-            head=newNode;
+            head = newNode;
         }
         else{
             tail.next=newNode;

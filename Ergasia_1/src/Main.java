@@ -2,17 +2,13 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Εισάγετε την προθεματική παράσταση: ");
-        String expression = scanner.nextLine();
+        System.out.print("Δωσε ακολουθία DNA: ");
+        String akolouthia_dna = scanner.nextLine();
 
-        // Καλούμε τη συνάρτηση για μετατροπή
-        String result = PrefixToInfix.convertPrefixToInfix(expression);  // Χρήση ονόματος κλάσης για πρόσβαση στη στατική μέθοδο.
+        DNAPalindrome dnaPalindrome = new DNAPalindrome();
 
-        // Εκτυπώνουμε το αποτέλεσμα
-        System.out.println("Η ενθεματική παράσταση είναι: " + result);
-
-        scanner.close();
+        System.out.println(dnaPalindrome.check(akolouthia_dna));
     }
-
 }

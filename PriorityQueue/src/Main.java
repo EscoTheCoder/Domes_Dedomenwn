@@ -13,13 +13,11 @@ public class Main {
         System.out.println(pq.size());
         System.out.println(pq.isEmpty());
 
-        pq.printMaxHeap();
-//        System.out.println();
-//
-//        System.out.println(pq.deleteMax());
-//
-//        System.out.println();
-//        pq.printMaxHeap();
+        for(int i=0; i<pq.n; i++){
+            System.out.print(pq.deleteMax()+" ");
+        }
+        System.out.println();
 
+        pq.printMaxHeap();
     }
 }

@@ -29,7 +29,7 @@ public class PrefixToInfix {
                 queue.addLast(infixExpression);
             }
             // Αν είναι αριθμός, τον προσθέτουμε στη στοίβα
-            else if (Character.isDigit(c)) {
+            else if (Character.isDigit(c)) { //ΕΙΣΑΓΩΓΗ ΜΟΝΟ ΑΡΙΘΜΩΝ
                 queue.addLast(c + "");
             }
             // Αν βρεθεί κάτι άλλο εκτός από τελεστή ή αριθμό
