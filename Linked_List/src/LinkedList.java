@@ -47,9 +47,9 @@ public class LinkedList {
         }
     }
 
-    public void deleteAt(int index){
+    public Node deleteAt(int index){
         if(index==0){
-            head=head.next;
+            deleteFirstNode();
         }
         else{
             Node n = head;
@@ -59,8 +59,9 @@ public class LinkedList {
             }
             n1=n.next;
             n.next=n1.next;
-            n1=null; //to diagafoume teleiws apo thn mnhmh
+            return n1;
         }
+        return null;
     }
 
     public Node deleteFirstNode(){

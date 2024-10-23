@@ -5,14 +5,15 @@ public class Main {
         list.insertAtEnd(18);
         list.insertAtEnd(45);
         list.insertAtEnd(12);
-//        list.insertAtStart(25);
-//        list.insertAt(0,55);
-//        list.deleteAt(2);
+
 
 
         list.show();
 
-        //list.deleteLastNode();
+        System.out.println();
+
+        System.out.println(list.deleteAt(2));
+        //System.out.println(list.deleteAt(0));
 
         System.out.println();
 
