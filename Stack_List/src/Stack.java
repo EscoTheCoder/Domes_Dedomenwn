@@ -1,39 +1,41 @@
 import java.util.EmptyStackException;
 
 public class Stack {
-    Node head;
+    private Node top;
+    private int length;
 
     class Node{
-        int value;
+        int data;
         Node next;
 
-        public Node(int value, Node next) {
-            this.value = value;
-            this.next = next;
+        public Node(int data) {
+            this.data = data;
         }
     }
 
     public Stack(){
-        head=null;
+        top=null;
+        length=0;
     }
 
-    public void push(int value){
-        Node extraNode = head;
-        head=new Node(value,extraNode);
+    public void push(int data){
+        Node newNode = new Node(data);
+        newNode.next=top;
+        top=newNode;
+        length++;
     }
 
     public int pop(){
         if(isEmpty()){
             throw new EmptyStackException();
         }
-        Node temp=head;
-        head=temp.next;
-        return temp.value;
+        int result = top.data;
+        top = top.next;
+        length--;
+        return result;
     }
 
     public boolean isEmpty(){
-        return head==null;
+        return length==0;
     }
-
-
 }

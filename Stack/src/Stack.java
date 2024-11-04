@@ -15,16 +15,16 @@ class Stack {
     }
 
     public void push(Object data) {
-        if (data == null)
+        if (isFull())
             throw new IllegalArgumentException();
-        if (top == n)
+        if (data == null)
             throw new IllegalStateException();
         array[top++] = data;
     }
 
     public Object pop() {
-        if (top == 0)
-            throw new IllegalStateException();
+        if (isEmpty())
+            throw new EmptyStackException();
         Object element = array[--top];
         array[top] = null;
         return element;

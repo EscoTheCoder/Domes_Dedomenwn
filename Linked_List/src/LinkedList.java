@@ -114,6 +114,32 @@ public class LinkedList {
         head = prev;
     }
 
+    @Override
+    public String toString() {
+        if (head==null) {
+            return "List is empty :(";
+        }
+
+        Node current = head;
+
+        StringBuilder ret = new StringBuilder();
+
+        // while not at end of list, output current node's data
+        ret.append(" HEAD -> ");
+
+        while (current != null) {
+            ret.append(current.data);
+
+            if (current.next != null)
+                ret.append(" -> ");
+
+            current = current.next;
+        }
+
+        ret.append(" <- TAIL");
+
+        return ret.toString();
+    }
 
 
 }
