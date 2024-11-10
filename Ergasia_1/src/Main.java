@@ -3,12 +3,11 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Δωσε ακολουθία DNA: ");
-        String akolouthia_dna = scanner.nextLine();
+        InfixToPostfix i_p = new InfixToPostfix();
 
-        DNAPalindrome dnaPalindrome = new DNAPalindrome();
-
-        System.out.println(dnaPalindrome.check(akolouthia_dna));
+        String infixExpression = "A+B*C+D";
+        String postfixExpression = i_p.infixToPostfix(infixExpression);
+        System.out.println("Infix Expression: " + infixExpression);
+        System.out.println("Postfix Expression: " + postfixExpression);
     }
 }
