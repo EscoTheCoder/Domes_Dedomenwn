@@ -64,6 +64,36 @@ public class LinkedList {
         return null;
     }
 
+    public Node delete(Object x){
+        int pos=0; // gia thn thesh pou tha vrethei o komvos
+        Node curr = head;
+        Node prev = null;
+
+        if(head==null){
+            System.out.println("to stoixeio den uparxei");
+            return null;
+        }
+        if(head.data==x){
+            System.out.println("to stoixeio uparxei sthn thesh: "+ pos++);
+            head = head.next;
+            return head;
+        }
+        while(curr.data != x){
+            if((int)curr.data<(int)x){ //type cast se int gia elegxo
+                System.out.println("to stoixeio den uparxei");
+                return head;
+            }
+            pos++;
+            prev=curr;
+            curr = curr.next;
+        }
+        System.out.println("Το στοιχείο υπάρχει στη θέση: " + pos);
+
+        curr = curr.next;
+        prev.next=curr;
+        return head;
+    }
+
     public Node deleteFirstNode(){
         if(head==null){
             return null;
@@ -136,7 +166,7 @@ public class LinkedList {
             current = current.next;
         }
 
-        ret.append(" <- TAIL");
+        ret.append(" -> null");
 
         return ret.toString();
     }
