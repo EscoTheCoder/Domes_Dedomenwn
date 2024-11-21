@@ -2,6 +2,7 @@ package edu.aueb.ds.lab5.SimpleQueue;
 
 import edu.aueb.ds.exceptions.EmptyQueueException;
 
+
 /**
  * Implementation of Queue using Array structure
  *
@@ -9,18 +10,18 @@ import edu.aueb.ds.exceptions.EmptyQueueException;
 public class ArrayQueue implements QueueInterface {
     /**
      * In order to implement a Queue using Arrays we will use Array Rotation and dynamic array grow
-     * <p>
+     *
      * Rotating an Array simply means shifting elements of array to left or
-     * to right by n position without exhausting the β€�bound of arrayβ€�.
-     * <p>
+     * to right by n position without exhausting the “bound of array”.
+     *
      * To use array rotation we implement positionAfter(int current) function to get the
      * next position after current. (e.x. if current is the last place of the array then
      * next is the first place of the array - rotating around array)
-     * <p>
+     *
      * When the array is full and we need to enqueue more items then we must grow the array.
      * To do so we will use growQueue() function to increase the capacity of existing array
      * by AUTOGROW_SIZE.
-     * <p>
+     *
      * When array grows we need to pay attention to where we replace items, so we won't lose
      * the order, and replace "front" and "back" pointers, as necessary.
      */
@@ -28,6 +29,8 @@ public class ArrayQueue implements QueueInterface {
     private Object[] queueContents; // the array to hold the queue data
 
     private int size; // number of enqueued items
+
+    private int n; // number of the queue capacity
 
     private int front; // array position of the front of the queue
     private int back; // array position of the back of the queue
@@ -38,11 +41,12 @@ public class ArrayQueue implements QueueInterface {
     /**
      * Initialize the queue
      */
-    public ArrayQueue() {
-        queueContents = new Object[DEFAULT_CAPACITY];
-        front = 0;
-        back = -1;
-        size = 0;
+    public ArrayQueue(int n) {
+        this.n=n;
+        queueContents = new Object[n];
+        front=0;
+        back=0;
+        size=0;
     }
 
     /**
@@ -52,13 +56,12 @@ public class ArrayQueue implements QueueInterface {
      */
     @Override
     public void enqueue(Object item) {
-        if (size == queueContents.length)
+        if(size==queueContents.length){
             growQueue();
-
-        back = positionAfter(back);
-        queueContents[back] = item;
-
-        size += 1;
+        }
+        queueContents[back]=item;
+        back = (back+1)%n; //circular increment otan (back+1)=n paei sthn thesh 0
+        size++;
     }
 
     /**
@@ -70,14 +73,13 @@ public class ArrayQueue implements QueueInterface {
      */
     @Override
     public Object dequeue() throws EmptyQueueException {
-        if (isEmpty())
+        if(isEmpty()){
             throw new EmptyQueueException();
-
-        Object element = queueContents[front];
-        front = positionAfter(front);
-        size -= 1;
-
-        return element;
+        }
+        Object data = queueContents[front];
+        front = (front + 1) % n;
+        size--;
+        return data;
     }
 
     /**
@@ -87,7 +89,7 @@ public class ArrayQueue implements QueueInterface {
      */
     @Override
     public boolean isEmpty() {
-        return size == 0;
+        return size==0;
     }
 
     /**
@@ -97,28 +99,20 @@ public class ArrayQueue implements QueueInterface {
      * @return the position in queue after current
      */
     private int positionAfter(int current) {
-        return (current + 1) % queueContents.length;
-
-        // Alternative
-        // if(current + 1 == queueContents.length)
-        //     return 0;
-        // return current + 1;
+        if(current + 1 == queueContents.length) {
+            return 0;
+        }
+        return current + 1;
     }
 
     /**
      * Increases the maximum capacity of the queue base on AUTOGROW_SIZE
      */
     private void growQueue() {
-        Object[] newContents = new Object[queueContents.length + AUTOGROW_SIZE];
-
-        int current = front;
-
-        for (int i = 0; i < size; ++i) {
-            newContents[i] = queueContents[current];
-            current = positionAfter(current);
+        Object[] temp = new Object[queueContents.length+AUTOGROW_SIZE];
+        for(int i=0; i<queueContents.length; i++){
+            temp[i]=queueContents[i];
         }
-        queueContents = newContents;
-        front = 0;
-        back = size - 1;
+        queueContents= temp;
     }
 }

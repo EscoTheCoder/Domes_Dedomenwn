@@ -4,8 +4,9 @@ import edu.aueb.ds.exceptions.EmptyQueueException;
 
 public class QueueMain {
     public static void main(String[] args) {
-        QueueInterface queue = new ArrayQueue();
         int testElements = 5;
+        QueueInterface queue = new ArrayQueue(5);
+
 
         System.out.println("Queue must be empty. queue.isEmpty() = " + queue.isEmpty());
 

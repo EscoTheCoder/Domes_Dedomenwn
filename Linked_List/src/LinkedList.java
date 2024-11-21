@@ -31,6 +31,49 @@ public class LinkedList {
         head = node;
     }
 
+    public Node insert(Object x) {
+        if (head == null) {
+            head = new Node(x); // Δημιουργία και ορισμός κεφαλής εάν η λίστα είναι κενή
+            return head;
+        }
+
+        if ((int)x == (int)head.data) {
+            return null; // Δεν επιτρέπουμε διπλές τιμές
+        }
+
+        if ((int)x < (int)head.data) {
+            // Εισαγωγή πριν από την κεφαλή
+            Node newNode = new Node(x);
+            newNode.next = head;
+            head = newNode;
+            return head;
+        }
+
+        // Εισαγωγή μετά την κεφαλή
+        Node current = head;
+        while (current.next != null) {
+            if ((int)x == (int)current.next.data) {
+                return null; // Δεν επιτρέπουμε διπλές τιμές
+            }
+
+            if ((int)x < (int)current.next.data) {
+                // Βρέθηκε η σωστή θέση
+                Node newNode = new Node(x);
+                newNode.next = current.next;
+                current.next = newNode;
+                return newNode;
+            }
+
+            current = current.next; // Μετακίνηση στον επόμενο κόμβο
+        }
+
+        // Εισαγωγή στο τέλος
+        Node newNode = new Node(x);
+        current.next = newNode;
+        return newNode;
+    }
+
+
     public void insertAt(int index, Object data){
         Node node = new Node(data);
 

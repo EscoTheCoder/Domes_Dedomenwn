@@ -4,11 +4,11 @@ public class Main {
         // Create an empty list
         LinkedList list = new LinkedList();
 
-        list.insertAtEnd(10);
-        list.insertAtEnd(8);
-        list.insertAtEnd(6);
-        list.insertAtEnd(3);
-        list.insertAtEnd(1);
+        list.insert(1);
+        list.insert(7);
+        list.insert(3);
+        list.insert(4);
+        list.insert(5);
 
         System.out.println(list);
 
