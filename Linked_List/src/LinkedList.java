@@ -161,13 +161,38 @@ public class LinkedList {
         return current;
     }
 
+    public Object findmax(){
+        if(head==null){
+            return null;
+        }
+        Object max = head.data;
+        Node curr = head.next;
+        Node prev = null;
+        while(curr!=null){
+            if((int)curr.data>(int)max){
+                max=curr.data;
+            }
+            curr=curr.next;
+        }
+        curr=head;
+        while(curr.data!=max && curr.next!=null){
+            prev=curr;
+            curr=curr.next;
+        }
+        prev.next=curr.next;
+        curr.next=head;
+        head.next=curr;
+
+        return max;
+    }
+
     public void show(){
         Node node = head;
         while(node.next!=null){
-            System.out.println(node.data);
+            System.out.print(node.data+"->");
             node=node.next;
         }
-        System.out.println(node.data);
+        System.out.print(node.data+"->null");
     }
 
     public void reverse() {
