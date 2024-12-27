@@ -1,7 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-
-        MaxPQ pq = new MaxPQ(5);
+        MaxPQ pq = new MaxPQ(6);
 
         pq.insert(20);
         pq.insert(12);
@@ -10,14 +9,15 @@ public class Main {
         pq.insert(9);
         pq.insert(25);
 
-        System.out.println(pq.size());
-        System.out.println(pq.isEmpty());
+        System.out.println("Size: " + pq.size());
+        System.out.println("Is empty: " + pq.isEmpty());
 
-//        for(int i=0; i<pq.n; i++){
-//            System.out.print(pq.deleteMax()+" ");
-//        }
+        while (!pq.isEmpty()) {
+            System.out.print(pq.deleteMax() + " ");
+        }
         System.out.println();
 
-        pq.printMaxHeap();
+        // Uncomment to view the heap (should be empty after deletions)
+        // pq.printMaxHeap();
     }
 }

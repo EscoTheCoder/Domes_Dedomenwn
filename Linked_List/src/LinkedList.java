@@ -122,15 +122,15 @@ public class LinkedList {
             return head;
         }
         while(curr.data != x){
-            if((int)curr.data<(int)x){ //type cast se int gia elegxo
-                System.out.println("to stoixeio den uparxei");
+            if((int)curr.data>(int)x){ //type cast se int gia elegxo
+                System.out.println("to stoixeio den uparxei!");
                 return head;
             }
             pos++;
             prev=curr;
             curr = curr.next;
         }
-        System.out.println("Το στοιχείο υπάρχει στη θέση: " + pos);
+        System.out.println("to stoixeio uparxei sthn thesh: " + pos);
 
         curr = curr.next;
         prev.next=curr;

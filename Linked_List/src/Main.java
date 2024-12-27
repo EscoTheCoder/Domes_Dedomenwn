@@ -12,7 +12,8 @@ public class Main {
 
         System.out.println(list);
 
-        list.delete(6);
+        list.delete(5);
+        list.delete(3);
 
         System.out.println(list);
     }

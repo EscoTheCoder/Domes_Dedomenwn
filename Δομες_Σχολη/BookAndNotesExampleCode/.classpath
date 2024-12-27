@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="Slide4"/>
+	<classpathentry kind="src" path="HelperClasses"/>
+	<classpathentry kind="src" path="Slide5"/>
+	<classpathentry kind="src" path="Slide6"/>
+	<classpathentry kind="src" path="Slide2"/>
+	<classpathentry kind="src" path="Slide3"/>
+	<classpathentry kind="src" path="Slide7"/>
+	<classpathentry kind="src" path="Slide8"/>
+	<classpathentry kind="src" path="Slide9"/>
+	<classpathentry kind="src" path="Slide10"/>
+	<classpathentry kind="src" path="Slide11"/>
+	<classpathentry kind="src" path="Slide12"/>
+	<classpathentry kind="src" path="Slide13"/>
+	<classpathentry kind="src" path="Slide14"/>
+	<classpathentry kind="src" path="Slide15"/>
+	<classpathentry kind="src" path="TestJoinTrees"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
