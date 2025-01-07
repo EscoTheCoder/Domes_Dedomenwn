@@ -43,5 +43,5 @@ public interface ListInterface {
     /**
      * Sorts the list
      */
-    void sort(VideoComparator comparator);
+    void sort();
 }

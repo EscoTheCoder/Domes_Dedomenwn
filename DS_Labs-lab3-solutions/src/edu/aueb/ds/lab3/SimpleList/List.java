@@ -23,7 +23,7 @@ public class List implements ListInterface {
      */
     @Override
     public boolean isEmpty() {
-        return head == null;
+        return head==null;
     }
 
     /**
@@ -33,14 +33,15 @@ public class List implements ListInterface {
      */
     @Override
     public void insertAtFront(int data) {
-        Node n = new Node(data);
+        Node newNode = new Node(data);
 
-        if (isEmpty()) {
-            head = n;
-            tail = n;
-        } else {
-            n.setNext(head);
-            head = n;
+        if(isEmpty()){
+            head = newNode;
+            tail = newNode;
+        }
+        else{
+            newNode.next = head;
+            head = newNode;
         }
     }
 
@@ -51,14 +52,15 @@ public class List implements ListInterface {
      */
     @Override
     public void insertAtBack(int data) {
-        Node n = new Node(data);
+        Node newNode = new Node(data);
 
-        if (isEmpty()) {
-            head = n;
-            tail = n;
-        } else {
-            tail.setNext(n);
-            tail = n;
+        if(isEmpty()){
+            head = newNode;
+            tail = newNode;
+        }
+        else{
+            tail.next = newNode;
+            tail = newNode;
         }
     }
 
@@ -70,17 +72,17 @@ public class List implements ListInterface {
      */
     @Override
     public int removeFromFront() throws EmptyListException {
-        if (isEmpty())
+        if(isEmpty()){
             throw new EmptyListException();
-
-        int data = head.getData();
+        }
+        int temp = head.data;
 
         if (head == tail)
             head = tail = null;
         else
-            head = head.getNext();
+            head = head.next;
 
-        return data;
+        return temp;
     }
 
     /**
@@ -91,23 +93,24 @@ public class List implements ListInterface {
      */
     @Override
     public int removeFromBack() throws EmptyListException {
-        if (isEmpty())
+        if(isEmpty()){
             throw new EmptyListException();
+        }
+        int temp = tail.data;
 
-        int data = tail.getData();
-
-        if (head == tail)
+        if (head == tail) { // Only one element in the list
             head = tail = null;
+        }
         else {
             Node iterator = head;
-            while (iterator.getNext() != tail)
-                iterator = iterator.getNext();
-
-            iterator.setNext(null);
-            tail = iterator;
+            while (iterator.next != tail) { // Traverse to the second-to-last node
+                iterator = iterator.next;
+            }
+            iterator.next = null; // Remove the last node
+            tail = iterator; // Update tail
         }
 
-        return data;
+        return temp;
     }
 
     /**

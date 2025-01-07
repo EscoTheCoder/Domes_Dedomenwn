@@ -193,6 +193,7 @@ public class LinkedList {
             node=node.next;
         }
         System.out.print(node.data+"->null");
+        System.out.println();
     }
 
     public void reverse() {
@@ -210,6 +211,31 @@ public class LinkedList {
             current = currNext;
         }
         head = prev;
+    }
+
+    Node search(int x){
+        if(head==null){
+            return null;
+        }
+        if((int)head.data==x){
+            Node temp = head;
+            head = head.next;
+            temp.next = null;
+            return temp;
+        }
+
+        Node curr = head.next;
+        Node prev = null;
+        while(curr != null && (int)curr.data<x){
+            prev = curr;
+            curr = curr.next;
+        }
+        if(curr != null && (int)curr.data==x){
+            prev.next=curr.next;
+            curr.next=null;
+            return curr;
+        }
+        return null;
     }
 
     @Override

@@ -33,7 +33,7 @@ public class List implements ListInterface {
      * @param data the inserted data
      */
     @Override
-    public void insertAtFront(Video data) {
+    public void insertAtFront(int data) {
         Node n = new Node(data);
 
         if (isEmpty()) {
@@ -141,58 +141,28 @@ public class List implements ListInterface {
         return ret.toString();
     }
     
-    /**
-     * Sorts the list
-     *
-     * @param comparator
-     */
-    @Override
-    public void sort(VideoComparator comparator) {
 
-        // No need to sort if list is empty or has a single element
-        if (head == null || head == tail)
-            return;
+    public void sort() {
 
-        Node newHead = null;
-        Node newTail = null;
+        Node dummy = new Node(0);
+        dummy.next = head;
+        Node prev = head;
+        Node curr = head.next;
 
-        while (head != null) {
-            // get next item
-            Node tmp = head;
-
-            // move head
-            head = head.getNext();
-
-            // move swap to new-sorted list
-            if (newHead == null) {
-                newHead = newTail = tmp;
-                tmp.setNext(null);
-            } else {
-                Node prev = null;
-                Node iterator = newHead;
-
-                // iterate newList until we get to a point where our data is smaller or reach the end
-                while (iterator != null && comparator.compare(iterator.getData(), tmp.getData()) >= 0) {
-                    prev = iterator;
-                    iterator = iterator.getNext();
-                }
-
-                // reached the point where we should place the node
-
-                // if prev == null then its the head of the list
-                if (prev == null)
-                    newHead = tmp;
-                else
-                    prev.setNext(tmp);
-
-                // if iterator == null then its the tail of the list
-                tmp.setNext(iterator);
-                if(iterator == null)
-                    newTail = tmp;
+        while(curr!=null){
+            if(curr.data>prev.data){
+                prev = curr;
+                curr = curr.next;
+                continue;
             }
+            Node temp =dummy;
+            while(curr.data>temp.next.data){
+                temp = temp.next;
+            }
+            prev.next = curr.next;
+            curr.next = prev;
+            temp.next = curr;
+            curr = prev.next;
         }
-
-        head = newHead;
-        tail = newTail;
     }    
 }

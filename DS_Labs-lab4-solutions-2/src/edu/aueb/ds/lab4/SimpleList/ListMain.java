@@ -29,7 +29,7 @@ public class ListMain {
             System.out.println(list.toString());
 
             System.out.println("\n\nSort list:");
-            list.sort(videoComparator);
+            list.sort();
             System.out.println(list.toString());
 
             // Remove from front
@@ -41,7 +41,7 @@ public class ListMain {
             System.out.println(removed.getTitle() + " just got removed");
 
             System.out.println("\n\nSort again:");
-            list.sort(videoComparator);
+            list.sort();
             System.out.println(list.toString());
 
 

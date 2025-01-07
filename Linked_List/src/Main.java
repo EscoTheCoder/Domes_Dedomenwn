@@ -1,24 +1,41 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        // Create an empty list
+
         LinkedList list = new LinkedList();
 
-        list.insert(5);
-        list.insert(3);
-        list.insert(1);
-        list.insert(7);
-        list.insert(2);
+        list.insertAtEnd(1);
+        list.insertAtEnd(2);
+        list.insertAtEnd(3);
+        list.insertAtEnd(4);
 
-        list.show();
+        ArrayList<Integer> arr = new ArrayList<>();
 
-        System.out.println(list.findmax());
+        LinkedList.Node temp = list.head;
+        while(temp!=null){
+            arr.add((Integer) temp.data);
+            temp = temp.next;
+        }
 
-        list.show();
+        System.out.println(arr);
 
-//        list.delete(5);
-//        list.delete(3);
+        ArrayList<Integer> rearranged = new ArrayList<>();
 
-//        System.out.println(list);
+        int i = 0;
+        int j = arr.size() - 1;
+        while (i <= j) {
+            if (i == j) {
+                rearranged.add(arr.get(i)); // Add middle element once
+            } else {
+                rearranged.add(arr.get(i));
+                rearranged.add(arr.get(j));
+            }
+            i++;
+            j--;
+        }
+
+        System.out.println(rearranged);
     }
 }

@@ -5,7 +5,7 @@ package edu.aueb.ds.lab4.SimpleList;
  * Each node contains an int as data and a reference to the next node in the list.
  */
 public class Node {
-    protected Video data;
+    protected int data;
     protected Node next = null;
 
     /**
@@ -14,7 +14,7 @@ public class Node {
      * @param data the data stored
      * @return
      */
-    Node(Video data) {
+    Node(int data) {
         this.data = data;
     }
 
@@ -23,7 +23,7 @@ public class Node {
      *
      * @return the reference to node's data
      */
-    public Video getData() {
+    public int getData() {
         // return data stored in this node
         return data;
     }
