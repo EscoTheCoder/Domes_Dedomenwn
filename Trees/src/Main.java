@@ -12,19 +12,23 @@ public class Main {
         System.out.println("Inorder traversal of the given tree");
         tree.display();
 
-        System.out.println("\n\nDelete 20");
-        tree.remove(20);
-        System.out.println("Inorder traversal of the modified tree");
-        tree.display();
+//        System.out.println("\n\nDelete 20");
+//        tree.remove(20);
+//        System.out.println("Inorder traversal of the modified tree");
+//        tree.display();
+//
+//        System.out.println("\n\nDelete 30");
+//        tree.remove(30);
+//        System.out.println("Inorder traversal of the modified tree");
+//        tree.display();
+//
+//        System.out.println("\n\nDelete 50");
+//        tree.remove(50);
+//        System.out.println("Inorder traversal of the modified tree");
+//        tree.display();
 
-        System.out.println("\n\nDelete 30");
-        tree.remove(30);
-        System.out.println("Inorder traversal of the modified tree");
-        tree.display();
-
-        System.out.println("\n\nDelete 50");
-        tree.remove(50);
-        System.out.println("Inorder traversal of the modified tree");
-        tree.display();
+        System.out.println();
+        tree.counter();
+        System.out.println(tree.counter);
     }
 }

@@ -1,5 +1,6 @@
 public class BinarySearchTree {
     Node root;
+    int counter = 0;
 
     class Node{
         int data;
@@ -69,6 +70,19 @@ public class BinarySearchTree {
         else{
             System.out.println(data +" Could not be found");
         }
+    }
+
+    void counter(){
+        countR(root);
+    }
+
+    void countR(Node h){
+        if(h==null){
+            return;
+        }
+        counter+=1;
+        countR(h.left);
+        countR(h.right);
     }
 
     private Node removeRecursion(Node root, int data){

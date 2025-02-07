@@ -6,36 +6,17 @@ public class Main {
 
         LinkedList list = new LinkedList();
 
-        list.insertAtEnd(1);
-        list.insertAtEnd(2);
-        list.insertAtEnd(3);
         list.insertAtEnd(4);
+        list.insertAtEnd(3);
+        list.insertAtEnd(2);
+        list.insertAtEnd(1);
 
-        ArrayList<Integer> arr = new ArrayList<>();
+        list.show();
 
-        LinkedList.Node temp = list.head;
-        while(temp!=null){
-            arr.add((Integer) temp.data);
-            temp = temp.next;
-        }
+        list.delete(5);
 
-        System.out.println(arr);
+        list.show();
 
-        ArrayList<Integer> rearranged = new ArrayList<>();
 
-        int i = 0;
-        int j = arr.size() - 1;
-        while (i <= j) {
-            if (i == j) {
-                rearranged.add(arr.get(i)); // Add middle element once
-            } else {
-                rearranged.add(arr.get(i));
-                rearranged.add(arr.get(j));
-            }
-            i++;
-            j--;
-        }
-
-        System.out.println(rearranged);
     }
 }

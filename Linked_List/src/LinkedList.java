@@ -107,33 +107,35 @@ public class LinkedList {
         return null;
     }
 
-    public Node delete(Object x){
-        int pos=0; // gia thn thesh pou tha vrethei o komvos
-        Node curr = head;
-        Node prev = null;
+    public Node delete(Object x){ //paradeigma x = 3
+        int pos = 0;
+        boolean flag = false;
 
         if(head==null){
-            System.out.println("to stoixeio den uparxei");
+            System.out.println("To stoixeio den vrethike");
             return null;
         }
-        if(head.data==x){
-            System.out.println("to stoixeio uparxei sthn thesh: "+ pos++);
+
+        if(head.data == x){
+            System.out.println("To stoixeio vrethike sthn thesh "+ pos);
             head = head.next;
             return head;
         }
-        while(curr.data != x){
-            if((int)curr.data>(int)x){ //type cast se int gia elegxo
-                System.out.println("to stoixeio den uparxei!");
-                return head;
+
+        Node temp = head;
+        while(temp.next!=null){
+            if(temp.next.data==x){
+                System.out.println("To stoixeio vrethike sthn thesh "+ ++pos);
+                flag = true;
+                temp.next = temp.next.next;
+                break;
             }
             pos++;
-            prev=curr;
-            curr = curr.next;
+            temp = temp.next;
         }
-        System.out.println("to stoixeio uparxei sthn thesh: " + pos);
-
-        curr = curr.next;
-        prev.next=curr;
+        if(!flag){
+            System.out.println("To stoixeio den vrethike");
+        }
         return head;
     }
 
